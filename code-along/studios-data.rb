@@ -9,3 +9,4 @@ studio["name"] = "Warner Bros."
 studio.save
 
 # puts "there are #{Studio.all.count} studios."
+puts Studio.all.inspect

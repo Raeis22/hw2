@@ -262,6 +262,23 @@ puts ""
 # Query the movies data and loop through the results to display the movies output.
 # TODO!
 
+movies = Movie.all
+
+index_1 = 0
+for movie in movies
+    puts "#{movies[index_1]["title"]} #{movies[index_1]["year_released"]} #{movies[index_1]["rated"]} " + Studio.find_by({"id" => movies[index_1]["studio_id"]})["name"].to_s
+    index_1 = index_1 + 1
+end
+
+# 从studio里通过movie里的studio_id找出对应studio
+# 先在movie里找出对应的studio_id
+# puts movies.inspect
+# puts movie[index_1]["studio_id"]
+# 再通过这个studio_id嵌套到studio表里查询
+# puts Studio.all.inspect
+# puts Studio.find_by({"id" => movies[index_1]["studio_id"]})["name"]
+#{Studio.find_by({id => Movie.find_by()})}
+
 # Prints a header for the cast output
 puts ""
 puts "Top Cast"
@@ -270,3 +287,11 @@ puts ""
 
 # Query the cast data and loop through the results to display the cast output for each movie.
 # TODO!
+
+roles = Role.all
+
+index_2 = 0
+for role in roles
+    puts "#{roles[index_1]["title"]} #{roles[index_1]["year_released"]} #{roles[index_1]["rated"]} " + Studio.find_by({"id" => movies[index_1]["studio_id"]})["name"].to_s
+    index_2 = index_2 + 1
+end

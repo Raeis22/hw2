@@ -292,6 +292,8 @@ roles = Role.all
 
 index_2 = 0
 for role in roles
-    puts "#{roles[index_1]["title"]} #{roles[index_1]["year_released"]} #{roles[index_1]["rated"]} " + Studio.find_by({"id" => movies[index_1]["studio_id"]})["name"].to_s
+    puts  "#{Movie.find_by({"id" => roles[index_2]["movie_id"]})["title"]} #{Actor.find_by({"id" => roles[index_2]["actor_id"]})["name"]} #{roles[index_2]["character_name"]}"
     index_2 = index_2 + 1
 end
+
+# movie first, then actor, then roles
